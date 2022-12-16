@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 
 import api from '../../services/api';
+import './filme-info.css';
 
 
 function Filme() {
@@ -22,7 +23,6 @@ function Filme() {
         .then((response) => {
           setFilme(response.data);
           setIsLoading(false);
-          // console.log(response.data);
         })
         .catch(() => {
           console.log("Filme não encontrado");
@@ -56,6 +56,13 @@ function Filme() {
       <span>{filme.overview}</span>
 
       <strong>Avaliação: {filme.vote_average} / 10</strong>
+
+      <div className="area-buttons">
+        <button>Salvar</button>
+        <button>
+          <a href="#">Trailer</a>
+        </button>
+      </div>
 
     </div>
   )
